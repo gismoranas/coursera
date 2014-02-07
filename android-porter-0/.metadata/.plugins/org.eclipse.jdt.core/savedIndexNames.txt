@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+/home/cataldo/Programs/coursera/android-porter-0/.metadata/.plugins/org.eclipse.jdt.core
+1114762847.index
+3869858663.index
+3741393344.index

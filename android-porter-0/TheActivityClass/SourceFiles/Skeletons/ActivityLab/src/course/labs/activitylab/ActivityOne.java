@@ -1,6 +1,7 @@
 package course.labs.activitylab;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -45,10 +46,10 @@ public class ActivityOne extends Activity {
 		// TODO: Assign the appropriate TextViews to the TextView variables
 		// Hint: Access the TextView by calling Activity's findViewById()
 		// textView1 = (TextView) findViewById(R.id.textView1);
-    onCreateTextView = (TextView) findViewById(R.id.CREATE_KEY);
-    onRestartTextView = (TextView) findViewById(R.id.RESTART_KEY);
-    onStartTextView = (TextView) findViewById(R.id.START_KEY);
-    onResumeTextView = (TextView) findViewById(R.id.RESUME_KEY);
+    onCreateTextView = (TextView) findViewById(R.id.create);
+    onRestartTextView = (TextView) findViewById(R.id.restart);
+    onStartTextView = (TextView) findViewById(R.id.start);
+    onResumeTextView = (TextView) findViewById(R.id.resume);
 
 		Button launchActivityTwoButton = (Button) findViewById(R.id.bLaunchActivityTwo); 
 		launchActivityTwoButton.setOnClickListener(new OnClickListener() {
@@ -60,7 +61,7 @@ public class ActivityOne extends Activity {
 
 				// Create an intent stating which Activity you would like to start
         Intent intent = new Intent();
-        intent.setComponent(new ComponentName("course.lab.activitylab", "course.lab.activitylab.ActivityTwo"));
+        intent.setComponent(new ComponentName("course.labs.activitylab", "course.labs.activitylab.ActivityTwo"));
 				// Launch the Activity using the intent
 			  view.getContext().startActivity(intent);
 			
@@ -80,7 +81,7 @@ public class ActivityOne extends Activity {
 		}
 
 		// Emit LogCat message
-    Log.i(CREATE_KEY);
+    Log.i(TAG, "Entered the onCreate() method");
 
 		// Update the appropriate count variable
     onCreateCounter++;
@@ -96,7 +97,7 @@ public class ActivityOne extends Activity {
 	public void onStart() {
 		super.onStart();
 		// Emit LogCat message
-    Log.i(START_KEY);
+    Log.i(TAG, "Entered the onStart() method");
 		// Update the appropriate count variable
     onStartCounter++;
 		// Update the user interface
@@ -108,7 +109,7 @@ public class ActivityOne extends Activity {
 	public void onResume() {
 		super.onResume();
 		// Emit LogCat message
-    Log.i(RESUME_KEY);
+    Log.i(TAG, "Entered the onResume() method");
 		// Update the appropriate count variable
     onResumeCounter++;
 		// Update the user interface
@@ -121,7 +122,7 @@ public class ActivityOne extends Activity {
 		super.onPause();
 
 		// Emit LogCat message
-    Log.i("pause");
+    Log.i(TAG, "Entered the onPause() method");
 
 	}
 
@@ -130,7 +131,7 @@ public class ActivityOne extends Activity {
 		super.onStop();
 
 		// Emit LogCat message
-    Log.i("stop");
+    Log.i(TAG, "Entered the onStop() method");
 
 	}
 
@@ -139,7 +140,7 @@ public class ActivityOne extends Activity {
 		super.onRestart();
 
 		// Emit LogCat message
-    Log.i(RESTART_KEY);
+    Log.i(TAG, "Entered the onRestart() method");
 		// Update the appropriate count variable
     onRestartCounter++;
 		// Update the user interface
@@ -152,7 +153,7 @@ public class ActivityOne extends Activity {
 		super.onDestroy();
 
 		// Emit LogCat message
-    Log.i("destroy");
+    Log.i(TAG, "Entered the onDestroy() method");
 
 	}
 
@@ -170,10 +171,10 @@ public class ActivityOne extends Activity {
 	// Updates the displayed counters
 	public void displayCounts() {
 
-		onCreateTextView.setText("onCreate() calls: " + mCreate);
-		onStartTextView.setText("onStart() calls: " + mStart);
-		onResumeTextView.setText("onResume() calls: " + mResume);
-		onRestartTextView.setText("onRestart() calls: " + mRestart);
+		onCreateTextView.setText("onCreate() calls: " + onCreateCounter);
+		onStartTextView.setText("onStart() calls: " + onStartCounter);
+		onResumeTextView.setText("onResume() calls: " + onResumeCounter);
+		onRestartTextView.setText("onRestart() calls: " + onRestartCounter);
 	
 	}
 }
